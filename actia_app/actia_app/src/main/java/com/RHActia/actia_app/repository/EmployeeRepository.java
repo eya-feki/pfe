@@ -4,7 +4,7 @@ import com.RHActia.actia_app.model.Employee;
 import com.RHActia.actia_app.model.Gender;
 import com.RHActia.actia_app.model.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+
 
 import java.util.Date;
 import java.util.List;
@@ -21,7 +21,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
         // Search by birthdate range
         List<Employee> findByBirthDateBetween(Date startDate, Date endDate);
-
         Employee findByEmail(String email);
 
 }
