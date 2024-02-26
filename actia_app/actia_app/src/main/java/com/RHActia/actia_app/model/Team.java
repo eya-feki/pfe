@@ -13,6 +13,8 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int team_id;
+    @Setter
+    @Getter
     @Column(name = "team_name")
     private String team_name;
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
@@ -20,11 +22,4 @@ public class Team {
     private String Description;
     private String photo;
 
-    public String getTeam_name() {
-        return team_name;
-    }
-
-    public void setTeam_name(String team_name) {
-        this.team_name = team_name;
-    }
 }

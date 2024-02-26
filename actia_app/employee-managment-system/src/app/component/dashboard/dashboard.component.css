@@ -1,0 +1,9 @@
+#addSelectedPhoto,
+#editSelectedPhoto {
+    width: 250px; /* Adjust the width as needed */
+    height:400px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the photo covers the entire container */
+    border-radius: 0; /* Removes rounded corners, making it rectangular */
+    border: 6px solid #fff; /* Adds a white border around the photo */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Adds a shadow effect */
+}
