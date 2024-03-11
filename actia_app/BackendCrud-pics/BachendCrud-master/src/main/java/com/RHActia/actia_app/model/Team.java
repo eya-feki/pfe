@@ -12,28 +12,30 @@ import java.util.Set;
 @Entity
 @Table
 public class Team {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id")
-        private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-        @Column(name = "name")
-        private String name;
+    @Column(name = "name")
+    private String name;
 
-        @Column(name = "description")
-        private String description;
+    @Column(name = "description")
+    private String description;
 
-        @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-        @JoinTable(name = "team_image",
-                joinColumns = @JoinColumn(name = "team_id"),
-                inverseJoinColumns = @JoinColumn(name = "image_id"))
-        private Set<ImageModel> teamImages;
+    @Column(name = "technologies_used") // Add the technologies used attribute
+    private String technologiesUsed;
 
-        @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
-        private List<Employee> employees;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "team_image",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "image_id"))
+    private Set<ImageModel> teamImages;
 
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Employee> employees;
 
-
+    // Getters and setters
     public String getDescription() {
         return description;
     }
@@ -42,6 +44,13 @@ public class Team {
         this.description = description;
     }
 
+    public String getTechnologiesUsed() {
+        return technologiesUsed;
+    }
+
+    public void setTechnologiesUsed(String technologiesUsed) {
+        this.technologiesUsed = technologiesUsed;
+    }
 
     public int getId() {
         return id;
@@ -66,5 +75,4 @@ public class Team {
     public void setTeamImages(Set<ImageModel> teamImages) {
         this.teamImages = teamImages;
     }
-
 }

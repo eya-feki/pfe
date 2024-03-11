@@ -20,6 +20,9 @@ public class Employee {
     private String firstname;
     private String lastname;
     private String email;
+    private String position; // New attribute for position
+    private String linkedin; // New attribute for LinkedIn profile
+
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
@@ -33,9 +36,11 @@ public class Employee {
             }
     )
     private Set<ImageModel> employeeImages;
+
     @ManyToOne(optional = false) // Champ obligatoire
     @JoinColumn(name = "idteam", referencedColumnName = "id")
     private Team team;
+
     public Set<ImageModel> getEmployeeImages() {
         return employeeImages;
     }
@@ -43,6 +48,4 @@ public class Employee {
     public void setEmployeeImages(Set<ImageModel> employeeImages) {
         this.employeeImages = employeeImages;
     }
-
-
- }
+}
